@@ -1,0 +1,42 @@
+wordy-cv-solver/
+│
+├── src/
+│   ├── main.py                # entry point
+│   ├── solver/
+│   │   ├── solver.py          # decision logic (make_guess, filtering)
+│   │   ├── state.py           # Letter class + tracking state
+│   │
+│   ├── vision/
+│   │   ├── ocr.py             # pytesseract logic
+│   │   ├── preprocessing.py   # image cleaning
+│   │   ├── segmentation.py    # crop board into letters
+│   │
+│   ├── game/
+│   │   ├── wordy.py           # your existing Wordy class
+│   │   ├── renderer.py        # WordyRenderer
+│
+├── data/
+│   └── words.txt
+│
+├── output/
+│
+├── requirements.txt
+├── README.md
+└── .gitignore
+
+Pipeline----------------------------------------------------------------------------------
+Game Engine (Wordy)
+        ↓
+Image Board
+        ↓
+Segmentation (vision)
+        ↓
+Preprocessing (vision)
+        ↓
+OCR (vision)
+        ↓
+State Update (solver)
+        ↓
+Decision Logic (solver)
+        ↓
+Next Guess
